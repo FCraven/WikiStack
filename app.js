@@ -9,3 +9,10 @@ app.use(express.urlencoded({extended :true}))
 app.get('/', (req,res) => {
   res.send('Hello World')
 })
+
+
+const PORT = 8080;
+
+app.listen(PORT, () => {
+  console.log(`The app is listening to your every command on ${PORT}`)
+})
