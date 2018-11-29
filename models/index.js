@@ -25,10 +25,4 @@ const User = db.define('user', {
   }
 })
 
-module.exports = { Page, User }
-
-
-
-
-
-module.exports = { db }
+module.exports = { db, Page, User }
