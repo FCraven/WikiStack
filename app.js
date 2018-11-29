@@ -2,6 +2,7 @@ const express = require('express')
 const app = express();
 const morgan = require('morgan')
 const layout = require('./views/layout')
+const { db } = require('./models');
 
 app.use(morgan('dev'));
 app.use(express.static('public'))
@@ -16,4 +17,9 @@ const PORT = 8080;
 
 app.listen(PORT, () => {
   console.log(`The app is listening to your every command on ${PORT}`)
+})
+
+db.authenticate().
+then(() => {
+  console.log('Connected to the DB!!')
 })

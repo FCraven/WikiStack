@@ -15,6 +15,9 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
-    "html-template-tag": "^2.0.0"
+    "html-template-tag": "^2.0.0",
+    "pg": "^7.6.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.41.2"
   }
 }
