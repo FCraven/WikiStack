@@ -13,11 +13,18 @@ app.get('/', (req,res) => {
 })
 
 
+
+
 const PORT = 8080;
 
-app.listen(PORT, () => {
-  console.log(`The app is listening to your every command on ${PORT}`)
-})
+const init = async () => {
+  await db.sync({force:true});
+  app.listen(PORT, () => {
+    console.log(`The app is listening to your every command on ${PORT}`)
+  })
+}
+
+init()
 
 db.authenticate().
 then(() => {
