@@ -3,7 +3,7 @@ const wikiRouter = express.Router()
 const addPage = require('../views/addPage')
 
 wikiRouter.get('/', (req,res,next) => {
-  res.send('Landed on GET route for all wiki pages')
+  res.redirect('/wiki')
 })
 
 wikiRouter.post('/',(req,res,next) => {
