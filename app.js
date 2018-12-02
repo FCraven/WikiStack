@@ -3,10 +3,14 @@ const app = express();
 const morgan = require('morgan')
 const layout = require('./views/layout')
 const { db } = require('./models');
+const wikiRouter = require('./routes/wiki')
+const userRouter = require('./routes/user')
 
 app.use(morgan('dev'));
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
+app.use('/wiki', wikiRouter)
+app.use('/user', userRouter)
 
 app.get('/', (req,res) => {
   res.send(layout(''))
