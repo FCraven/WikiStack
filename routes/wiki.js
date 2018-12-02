@@ -7,7 +7,7 @@ wikiRouter.get('/', (req,res,next) => {
 })
 
 wikiRouter.post('/',(req,res,next) => {
-  res.send('You hit the POST route for /wiki')
+  res.json(req.body)
 })
 
 wikiRouter.get('/add', (req,res,next) => {
