@@ -18,7 +18,7 @@ app.get('/', (req,res) => {
 const PORT = 8080;
 
 const init = async () => {
-  await db.sync({force:true});
+  await db.sync();
   app.listen(PORT, () => {
     console.log(`The app is listening to your every command on ${PORT}`)
   })
