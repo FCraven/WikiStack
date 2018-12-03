@@ -30,7 +30,7 @@ module.exports = () => layout(html`
     <div class='form-group'>
       <label for='page-content' class='col-sm-2 control-label'>Page Content</label>
       <div class='col-sm-10'>
-        <input placeholder='Enter the Content of the Page Here...' id='page-content' name='content' type='text' class='form-control' />
+        <textarea placeholder='Enter Content Here...' id='page-content' name='content' type='text' class='form-control'></textarea>
       </div>
     </div>
 
