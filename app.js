@@ -10,7 +10,7 @@ app.use(morgan('dev'));
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use('/wiki', wikiRouter)
-app.use('/user', userRouter)
+app.use('/users', userRouter)
 
 app.get('/', (req, res) => {
   res.send(layout(''))
