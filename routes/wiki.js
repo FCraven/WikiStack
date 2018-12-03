@@ -44,8 +44,13 @@ wikiRouter.get('/:slug', async (req,res,next) => {
         slug: req.params.slug
       }
     })
-    const author = await page.getAuthor()
-    res.send(wikipage(page,author))
+
+    if(!page){
+      res.status(404).send('That page no live here no more. GO AWAY!!')
+    } else {
+      const author = await page.getAuthor()
+      res.send(wikipage(page,author))
+    }
   } catch (error) {
     next(error)
   }
