@@ -3,10 +3,12 @@ const wikiRouter = express.Router()
 const addPage = require('../views/addPage')
 const { Page } = require("../models")
 const wikipage = require('../views/wikipage')
+const main = require('../views/main')
 
 
-wikiRouter.get('/', (req,res,next) => {
-  res.redirect('/wiki')
+wikiRouter.get('/', async (req,res,next) => {
+  const pages = await Page.findAll();
+  res.send(main(pages))
 })
 
 
