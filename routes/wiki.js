@@ -1,9 +1,10 @@
 const express = require('express')
 const wikiRouter = express.Router()
 const addPage = require('../views/addPage')
-const { Page } = require("../models")
+const { Page, User } = require("../models")
 const wikipage = require('../views/wikipage')
 const main = require('../views/main')
+
 
 
 wikiRouter.get('/', async (req,res,next) => {
@@ -13,10 +14,15 @@ wikiRouter.get('/', async (req,res,next) => {
 
 
 wikiRouter.post('/', async (req,res,next) => {
-  const page = new Page({
-    title: req.body.title,
-    content: req.body.content
-  });
+  const page = await Page.create(req.body)
+  const [user, wasCreated] = await User.findOrCreate({
+    where: {
+      name: req.body.name,
+      email: req.body.email
+    }
+  })
+
+  page.setAuthor(user)
 
   try{
     await page.save();

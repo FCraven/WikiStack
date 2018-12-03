@@ -45,8 +45,8 @@ const User = db.define('user', {
 })
 
 //Associations
+Page.belongsTo(User, {as: 'author'})
 
-//Hooks
 
 
 module.exports = { db, Page, User }

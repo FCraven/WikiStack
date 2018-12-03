@@ -8,11 +8,11 @@ const userRouter = require('./routes/user')
 
 app.use(morgan('dev'));
 app.use(express.static('public'))
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 app.use('/wiki', wikiRouter)
 app.use('/user', userRouter)
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
   res.send(layout(''))
 })
 
@@ -31,6 +31,6 @@ const init = async () => {
 init()
 
 db.authenticate().
-then(() => {
-  console.log('Connected to the DB!!')
-})
+  then(() => {
+    console.log('Connected to the DB!!')
+  })
