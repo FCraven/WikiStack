@@ -44,7 +44,9 @@ wikiRouter.get('/:slug', async (req,res,next) => {
         slug: req.params.slug
       }
     })
-    res.send(wikipage(page))
+    const author = await page.getAuthor()
+    console.log(`==+--(author)-->`, author)
+    res.send(wikipage(page,author))
   } catch (error) {
     next(error)
   }
